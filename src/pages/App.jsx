@@ -423,38 +423,6 @@ function AlbumView({ courses, photos, onPickCourse, onImport, onSearch, onOpenRe
         </div>
       </div>
 
-      {/* 一键同步建议（用户首次或长时间未同步） */}
-      {photos.length === 0 && courses.length > 0 && (
-        <div style={{ padding: '0 22px 16px' }}>
-          <button onClick={onImport} className="tap" style={{
-            width: '100%',
-            background: 'linear-gradient(135deg, var(--c1), var(--c2))',
-            borderRadius: '14px',
-            padding: '20px 18px',
-            display: 'flex', alignItems: 'center', gap: '14px',
-            textAlign: 'left',
-          }}>
-            <div style={{
-              width: '40px', height: '40px',
-              borderRadius: '12px',
-              background: 'rgba(255,255,255,0.4)',
-              color: 'rgba(0,0,0,0.7)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              flexShrink: 0,
-            }}>
-              <IconSparkle size={20} />
-            </div>
-            <div style={{ flex: 1 }}>
-              <div style={{ fontSize: '14px', fontWeight: 600, color: 'rgba(0,0,0,0.85)' }}>
-                一键导入相册笔记
-              </div>
-              <div style={{ fontSize: '11px', color: 'rgba(0,0,0,0.6)', marginTop: '3px', lineHeight: 1.5 }}>
-                自动识别课堂笔记 · 按时间归到对应课程
-              </div>
-            </div>
-          </button>
-        </div>
-      )}
 
       {courses.length === 0 ? (
         <div style={{
