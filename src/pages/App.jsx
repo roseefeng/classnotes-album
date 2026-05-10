@@ -497,7 +497,7 @@ function AlbumView({ courses, photos, onPickCourse, onImport, onSearch, onOpenRe
             className="tap"
             style={{
               width: '100%',
-              padding: '12px 14px',
+              padding: '14px',
               background: 'var(--card)',
               borderRadius: '10px',
               display: 'flex', justifyContent: 'space-between', alignItems: 'center',
