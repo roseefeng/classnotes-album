@@ -249,7 +249,7 @@ export default function App() {
         startIndex={viewerState.startIndex}
         courseName={viewerState.courseName}
         getDataUrl={getDataUrl}
-        feedback={feedback[viewerState.photos[viewerState.startIndex]?.id]}
+        feedbackMap={feedback}
         onClose={() => setViewerState(null)}
         onDelete={(id) => handleDeletePhoto(id)}
         onFeedback={handleFeedback}
