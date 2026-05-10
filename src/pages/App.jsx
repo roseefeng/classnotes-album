@@ -1,3 +1,4 @@
+import { IconUpload, IconPlus, IconChevronRight, IconSearch, IconSparkle, IconMore } from '../components/Icons.jsx';
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { IconUpload, IconPlus, IconChevronRight, IconSearch, IconSparkle } from '../components/Icons.jsx';
 import BottomNav from '../components/BottomNav.jsx';
@@ -636,55 +637,54 @@ function CoursesView({ courses, photos, onPickCourse, onAddCourse, onEditCourse 
             </span>
           </div>
         )}
-        {courses.map((c, i) => (
-          <div
-            key={c.id}
-            className="fade-up"
-            style={{
-              display: 'flex', alignItems: 'center', gap: '14px',
-              padding: '14px 0',
-              borderTop: i === 0 ? '0.5px solid var(--line)' : 'none',
-              borderBottom: '0.5px solid var(--line)',
-              animationDelay: `${i * 0.04}s`,
-            }}
-          >
-            <div style={{
-              width: '36px', height: '36px',
-              borderRadius: '10px',
-              background: c.color,
-              flexShrink: 0,
-            }} />
-            <button
-              onClick={() => onPickCourse(c)}
-              className="tap"
-              style={{
-                flex: 1, padding: 0, textAlign: 'left',
-                background: 'transparent',
-              }}
-            >
-              <div style={{ fontSize: '14px', color: 'var(--ink)', fontWeight: 500 }}>
-                {c.name}
-              </div>
-              <div style={{ fontSize: '10px', color: 'var(--ink-mute)', marginTop: '2px' }}>
-                周{DAY_NAMES[c.day]} {c.start}–{c.end}
-              </div>
-            </button>
-            <div style={{
-              fontSize: '14px',
-              color: 'var(--ink-mute)',
-              fontWeight: 600,
-            }}>
-              {photoCountByCourse[c.id] || 0}
-            </div>
-            <button
-              onClick={() => onEditCourse(c)}
-              className="tap"
-              style={{ color: 'var(--ink-mute)', padding: '4px' }}
-            >
-              <IconChevronRight size={14} />
-            </button>
-          </div>
-        ))}
+{courses.map((c, i) => (
+  <div
+    key={c.id}
+    className="fade-up"
+    style={{
+      display: 'flex', alignItems: 'center', gap: '14px',
+      padding: '14px 0',
+      borderTop: i === 0 ? '0.5px solid var(--line)' : 'none',
+      borderBottom: '0.5px solid var(--line)',
+      animationDelay: `${i * 0.04}s`,
+    }}
+  >
+    <div style={{
+      width: '36px', height: '36px',
+      borderRadius: '10px',
+      background: c.color,
+      flexShrink: 0,
+    }} />
+    <button
+      onClick={() => onPickCourse(c)}
+      className="tap"
+      style={{
+        flex: 1, padding: 0, textAlign: 'left',
+        background: 'transparent',
+        display: 'flex', alignItems: 'center', gap: '8px',
+      }}
+    >
+      <div style={{ flex: 1 }}>
+        <div style={{ fontSize: '14px', color: 'var(--ink)', fontWeight: 500 }}>
+          {c.name}
+        </div>
+        <div style={{ fontSize: '10px', color: 'var(--ink-mute)', marginTop: '2px' }}>
+          周{DAY_NAMES[c.day]} {c.start}–{c.end}
+        </div>
+      </div>
+      <div style={{ fontSize: '14px', color: 'var(--ink-mute)', fontWeight: 600 }}>
+        {photoCountByCourse[c.id] || 0}
+      </div>
+    </button>
+    <button
+      onClick={() => onEditCourse(c)}
+      className="tap"
+      style={{ color: 'var(--ink-mute)', padding: '6px' }}
+    >
+      <IconMore size={16} />
+    </button>
+  </div>
+))}
       </div>
     </div>
   );
