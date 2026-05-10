@@ -459,13 +459,16 @@ function AlbumView({ courses, photos, onPickCourse, onImport, onSearch, onOpenRe
     textAlign: 'left',
   }}
 >
-  <div style={{
-    fontSize: '14px',
-    color: INK_BY_COLOR[c.color] || 'rgba(0,0,0,0.75)',
-    fontWeight: 500,
-  }}>
-    {c.name}
-  </div>
+<div style={{
+  position: 'absolute',
+  top: '14px',
+  left: '16px',
+  fontSize: '14px',
+  color: INK_BY_COLOR[c.color] || 'rgba(0,0,0,0.75)',
+  fontWeight: 500,
+}}>
+  {c.name}
+</div>
   <div style={{
     position: 'absolute',
     left: '16px',
