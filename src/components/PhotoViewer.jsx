@@ -6,6 +6,7 @@ export default function PhotoViewer({ photos, startIndex, courseName, onClose, o
   const [scale, setScale] = useState(1);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [dataUrl, setDataUrl] = useState(null);
+  const [popping, setPopping] = useState(null);
   const [toast, setToast] = useState(null);
 
   const touchRef = useRef({ startX: 0, startY: 0, lastDist: 0, dragging: false });
