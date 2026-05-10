@@ -12,7 +12,16 @@ const COLOR_POOL = [
   'var(--c1)', 'var(--c2)', 'var(--c3)',
   'var(--c4)', 'var(--c5)', 'var(--c6)', 'var(--c7)',
 ];
-
+// 每个色卡的深色文字版本（用于课程名和数字）
+export const INK_BY_COLOR = {
+  'var(--c1)': '#3d2a4a',  // 深紫
+  'var(--c2)': '#1f2d4a',  // 深蓝
+  'var(--c3)': '#4a2230',  // 深藕
+  'var(--c4)': '#3d2f20',  // 深棕
+  'var(--c5)': '#3a3a1a',  // 深橄榄
+  'var(--c6)': '#1f3a28',  // 深绿
+  'var(--c7)': '#3a2410',  // 深驼
+};
 const DEFAULT_COURSES = [
   { id: 'c1', name: '线性代数', day: 3, start: '14:00', end: '15:40', color: 'var(--c1)' },
   { id: 'c2', name: '机器学习', day: 4, start: '08:00', end: '09:40', color: 'var(--c2)' },
