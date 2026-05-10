@@ -453,7 +453,7 @@ function AlbumView({ courses, photos, onPickCourse, onImport, onSearch, onOpenRe
                   background: c.color,
                   aspectRatio: 1,
                   borderRadius: '14px',
-                  padding: '14px',
+                  padding: '10 14px',
                   position: 'relative',
                   overflow: 'hidden',
                   textAlign: 'left',
