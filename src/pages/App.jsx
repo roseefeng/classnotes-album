@@ -11,7 +11,7 @@ import SearchPanel from '../components/SearchPanel.jsx';
 import { matchCourse, matchPhoto } from '../lib/match.js';
 import { readPhotoMeta } from '../lib/exif.js';
 import {
-  loadCourses, saveCourses, nextColor,
+  loadCourses, saveCourses, nextColor, INK_BY_COLOR,
   loadPhotos, savePhotos,
   saveImage, loadImage, deleteImage,
   loadFeedback, saveFeedback,
@@ -445,46 +445,46 @@ function AlbumView({ courses, photos, onPickCourse, onImport, onSearch, onOpenRe
           {courses.map(c => {
             const count = photoCountByCourse[c.id] || 0;
             return (
-              <button
-                key={c.id}
-                onClick={() => onPickCourse(c)}
-                className="tap"
-                style={{
-                  background: c.color,
-                  aspectRatio: 1,
-                  borderRadius: '14px',
-                  padding: '10 14px',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  textAlign: 'left',
-                }}
-              >
-                <div style={{
-                  fontSize: '16px',
-                  color: 'rgba(0,0,0,0.65)',
-                  fontWeight: 500,
-                }}>
-                  {c.name}
-                </div>
-                <div style={{
-                  position: 'absolute',
-                  left: '16px',
-                  bottom: '16px',
-                  fontSize: '42px',
-                  fontWeight: 600,
-                  color: 'rgba(0,0,0,0.85)',
-                  lineHeight: 1,
-                  letterSpacing: '-0.02em',
-                }}>
-                  {count}
-                  <span style={{
-                    fontSize: '14px',
-                    fontWeight: 500,
-                    opacity: 0.6,
-                    marginLeft: '3px',
-                  }}>张</span>
-                </div>
-              </button>
+             <button
+  key={c.id}
+  onClick={() => onPickCourse(c)}
+  className="tap"
+  style={{
+    background: c.color,
+    aspectRatio: 1,
+    borderRadius: '14px',
+    padding: '12px 14px',
+    position: 'relative',
+    overflow: 'hidden',
+    textAlign: 'left',
+  }}
+>
+  <div style={{
+    fontSize: '14px',
+    color: INK_BY_COLOR[c.color] || 'rgba(0,0,0,0.75)',
+    fontWeight: 500,
+  }}>
+    {c.name}
+  </div>
+  <div style={{
+    position: 'absolute',
+    left: '16px',
+    bottom: '16px',
+    fontSize: '42px',
+    fontWeight: 600,
+    color: INK_BY_COLOR[c.color] || 'rgba(0,0,0,0.85)',
+    lineHeight: 1,
+    letterSpacing: '-0.02em',
+  }}>
+    {count}
+    <span style={{
+      fontSize: '13px',
+      fontWeight: 500,
+      opacity: 0.6,
+      marginLeft: '3px',
+    }}>张</span>
+  </div>
+</button>
             );
           })}
         </div>
