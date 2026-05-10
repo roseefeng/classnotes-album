@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { IconClose, IconCpu, IconCheck, IconSparkle } from './Icons.jsx';
+import { IconClose, IconCheck } from './Icons.jsx';
 import { loadClassifier, classifyImage } from '../lib/classify.js';
 import { readPhotoMeta } from '../lib/exif.js';
 import { matchPhoto } from '../lib/match.js';
@@ -176,15 +176,19 @@ function LoadingModel({ progress, subStage }) {
   return (
     <div>
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-        <div style={{
-          width: '40px', height: '40px',
-          borderRadius: '12px',
-          background: 'var(--c1)',
-          color: 'rgba(0,0,0,0.7)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-        }}>
-          <IconCpu size={20} />
-        </div>
+<div style={{
+  width: '40px', height: '40px',
+  display: 'flex', alignItems: 'center', justifyContent: 'center',
+  flexShrink: 0,
+}}>
+  <div style={{
+    width: '24px', height: '24px',
+    border: '2.5px solid var(--bg-2)',
+    borderTopColor: 'var(--c1)',
+    borderRadius: '50%',
+    animation: 'spin 0.8s linear infinite',
+  }} />
+</div>
         <div>
           <div style={{ fontSize: '15px', fontWeight: 600, color: 'var(--ink)' }}>
             首次准备中
@@ -218,20 +222,19 @@ function LoadingModel({ progress, subStage }) {
   );
 }
 
-function Processing({ progress }) {
-  const pct = progress.total > 0 ? progress.done / progress.total : 0;
-  return (
-    <div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-        <div style={{
-          width: '40px', height: '40px',
-          borderRadius: '12px',
-          background: 'var(--c2)',
-          color: 'rgba(0,0,0,0.7)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-        }}>
-          <IconSparkle size={20} />
-        </div>
+<div style={{
+    width: '40px', height: '40px',
+    display: 'flex', alignItems: 'center', justifyContent: 'center',
+    flexShrink: 0,
+  }}>
+    <div style={{
+      width: '24px', height: '24px',
+      border: '2.5px solid var(--bg-2)',
+      borderTopColor: 'var(--c1)',
+      borderRadius: '50%',
+      animation: 'spin 0.8s linear infinite',
+    }} />
+  </div>
         <div>
           <div style={{ fontSize: '15px', fontWeight: 600, color: 'var(--ink)' }}>
             正在分析照片
