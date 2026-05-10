@@ -284,8 +284,8 @@ export default function App() {
 
   if (activeCourse) {
     const coursePhotos = photos
-      .filter(p => p.courseId === activeCourse.id)
-      .sort((a, b) => (b.takenAt || '').localeCompare(a.takenAt || ''));
+  .filter(p => activeCourse.id === '__unclassified__' ? !p.courseId : p.courseId === activeCourse.id)
+  .sort((a, b) => (b.takenAt || '').localeCompare(a.takenAt || ''));
     return (
       <div className="app-frame">
         <CourseDetail
@@ -331,11 +331,16 @@ export default function App() {
             });
             trackPhotoView({ photoId });
           }}
-          onOpenUnclassified={() => {
-            const unc = photos.filter(p => !p.courseId);
-            if (unc.length === 0) return;
-            setViewerState({ photos: unc, startIndex: 0, courseName: '未分类' });
-          }}
+onOpenUnclassified={() => {
+  setActiveCourse({
+    id: '__unclassified__',
+    name: '未分类',
+    color: 'var(--c4)',
+    day: -1,
+    start: '',
+    end: '',
+  });
+}}
           getThumbColor={getThumbColor}
         />
       )}
