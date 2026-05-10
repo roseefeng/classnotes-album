@@ -21,7 +21,7 @@ export default function BottomNav({ tab, onTabChange, onCapture }) {
         onClick={() => onTabChange('album')}
         className="tap"
         style={{
-          fontSize: '11px',
+          fontSize: '14px',
           fontWeight: tab === 'album' ? 600 : 400,
           color: tab === 'album' ? 'var(--ink)' : 'var(--ink-mute)',
           padding: '6px 12px',
@@ -53,7 +53,7 @@ export default function BottomNav({ tab, onTabChange, onCapture }) {
         onClick={() => onTabChange('courses')}
         className="tap"
         style={{
-          fontSize: '11px',
+          fontSize: '14px',
           fontWeight: tab === 'courses' ? 600 : 400,
           color: tab === 'courses' ? 'var(--ink)' : 'var(--ink-mute)',
           padding: '6px 12px',
