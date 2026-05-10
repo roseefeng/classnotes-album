@@ -1,0 +1,13 @@
+{
+  "name": "课堂相册",
+  "short_name": "课堂相册",
+  "description": "拍下笔记，自动归类到对应课程",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f0ebe3",
+  "theme_color": "#b8a8c8",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

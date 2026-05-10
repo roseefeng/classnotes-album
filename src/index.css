@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* 莫兰迪三色基底 */
+  --bg: #f0ebe3;
+  --bg-2: #e8e3da;
+  --card: #ffffff;
+  --ink: #2a2a2a;
+  --ink-soft: #555555;
+  --ink-mute: #999999;
+  --line: #d8d2c8;
+
+  /* 五个课程色（莫兰迪低饱和） */
+  --c1: #b8a8c8;  /* 柔雾紫 */
+  --c2: #b0b8c8;  /* 雾蓝 */
+  --c3: #c8b0b8;  /* 藕粉 */
+  --c4: #d8cec4;  /* 暖灰 */
+  --c5: #c8c4a0;  /* 淡橄榄 */
+  --c6: #a8c0b0;  /* 雾绿 */
+  --c7: #d4a878;  /* 浅驼 */
+
+  /* 功能色（带情绪） */
+  --danger: #a04848;
+  --danger-soft: rgba(160, 72, 72, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+
+button { cursor: pointer; border: none; background: none; }
+input, button { font-family: inherit; }
+input:focus, button:focus { outline: none; }
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* 微动效 */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(184, 168, 200, 0.5); }
+  50% { box-shadow: 0 0 0 8px rgba(184, 168, 200, 0); }
+}
+
+.fade-up { animation: fadeUp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) backwards; }
+.fade-in { animation: fadeIn 0.3s ease-out backwards; }
+.slide-up { animation: slideUp 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.pop { animation: pop 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); }
+
+.tap {
+  transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.15s, background 0.2s;
+}
+.tap:active {
+  transform: scale(0.96);
+  opacity: 0.8;
+}
+
+/* 通用 app 容器 */
+.app-frame {
+  max-width: 450px;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  background: var(--bg);
+}
