@@ -460,7 +460,7 @@ function AlbumView({ courses, photos, onPickCourse, onImport, onSearch, onOpenRe
                 }}
               >
                 <div style={{
-                  fontSize: '12px',
+                  fontSize: '16px',
                   color: 'rgba(0,0,0,0.65)',
                   fontWeight: 500,
                 }}>
@@ -468,9 +468,9 @@ function AlbumView({ courses, photos, onPickCourse, onImport, onSearch, onOpenRe
                 </div>
                 <div style={{
                   position: 'absolute',
-                  left: '14px',
-                  bottom: '14px',
-                  fontSize: '36px',
+                  left: '16px',
+                  bottom: '16px',
+                  fontSize: '42px',
                   fontWeight: 600,
                   color: 'rgba(0,0,0,0.85)',
                   lineHeight: 1,
@@ -478,10 +478,10 @@ function AlbumView({ courses, photos, onPickCourse, onImport, onSearch, onOpenRe
                 }}>
                   {count}
                   <span style={{
-                    fontSize: '12px',
+                    fontSize: '14px',
                     fontWeight: 500,
                     opacity: 0.6,
-                    marginLeft: '2px',
+                    marginLeft: '3px',
                   }}>张</span>
                 </div>
               </button>
