@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { supabase, isSupabaseEnabled } from '../lib/supabase.js';
 
-const ADMIN_KEY = 'classnotes2026'; // 部署前请改成你自己的密钥
+const ADMIN_KEY = 'Wqdyyyktmdxlhhlldyj'; 
 
 export default function Admin() {
   const [authed, setAuthed] = useState(false);
