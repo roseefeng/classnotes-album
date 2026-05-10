@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { IconClose, IconCheck, IconTrash, IconDownload, IconChevronLeft, IconChevronRight } from './Icons.jsx';
 
-export default function PhotoViewer({ photos, startIndex, courseName, onClose, onDelete, onFeedback, feedback, getDataUrl }) {
+export default function PhotoViewer({ photos, startIndex, courseName, onClose, onDelete, onFeedback, feedbackMap, getDataUrl }) {
   const [idx, setIdx] = useState(startIndex);
   const [scale, setScale] = useState(1);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [dataUrl, setDataUrl] = useState(null);
-  const [popping, setPopping] = useState(null);
+  const [toast, setToast] = useState(null);
 
   const touchRef = useRef({ startX: 0, startY: 0, lastDist: 0, dragging: false });
 
@@ -75,11 +75,16 @@ export default function PhotoViewer({ photos, startIndex, courseName, onClose, o
     setOffset({ x: 0, y: 0 });
   };
 
-  const tapFb = (type) => {
-    setPopping(type);
-    onFeedback(photo.id, type);
-    setTimeout(() => setPopping(null), 300);
-  };
+const tapFb = (type) => {
+  setPopping(type);
+  onFeedback(photo.id, type);
+  setTimeout(() => {
+    setPopping(null);
+    // 反馈后弹一个 toast，2 秒后自动消失
+    setToast(type === 'correct' ? '已记录：分类正确' : '已记录：分类错误');
+    setTimeout(() => setToast(null), 1500);
+  }, 200);
+};
 
   const handleDownload = () => {
     if (!dataUrl) return;
@@ -222,24 +227,43 @@ export default function PhotoViewer({ photos, startIndex, courseName, onClose, o
         </div>
       )}
 
+      {toast && (
+        <div className="fade-up" style={{
+          position: 'absolute',
+          bottom: '120px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          background: 'rgba(0,0,0,0.7)',
+          backdropFilter: 'blur(8px)',
+          color: 'var(--bg)',
+          padding: '8px 16px',
+          borderRadius: '100px',
+          fontSize: '12px',
+          fontWeight: 500,
+          zIndex: 20,
+          whiteSpace: 'nowrap',
+        }}>
+          {toast}
+        </div>
+      )}
       {/* 底部操作 */}
       <div style={{
         padding: '14px 22px max(28px, env(safe-area-inset-bottom))',
         display: 'flex', justifyContent: 'space-around', alignItems: 'center',
       }}>
         <button onClick={() => tapFb('correct')} className={`tap ${popping === 'correct' ? 'pop' : ''}`} style={{
-          color: feedback === 'correct' ? 'var(--c1)' : 'var(--bg)',
-          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px',
-          opacity: feedback && feedback !== 'correct' ? 0.4 : 1,
-        }}>
+  color: feedbackMap?.[photo.id] === 'correct' ? 'var(--c1)' : 'var(--bg)',
+  display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px',
+  opacity: feedbackMap?.[photo.id] && feedbackMap?.[photo.id] !== 'correct' ? 0.4 : 1,
+}}>
           <IconCheck size={20} stroke={2} />
           <span style={{ fontSize: '10px' }}>分类对</span>
         </button>
         <button onClick={() => tapFb('wrong')} className={`tap ${popping === 'wrong' ? 'pop' : ''}`} style={{
-          color: feedback === 'wrong' ? 'var(--c3)' : 'var(--bg)',
-          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px',
-          opacity: feedback && feedback !== 'wrong' ? 0.4 : 1,
-        }}>
+  color: feedbackMap?.[photo.id] === 'wrong' ? 'var(--c3)' : 'var(--bg)',
+  display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px',
+  opacity: feedbackMap?.[photo.id] && feedbackMap?.[photo.id] !== 'wrong' ? 0.4 : 1,
+}}>
           <IconClose size={20} stroke={2} />
           <span style={{ fontSize: '10px' }}>分错了</span>
         </button>
