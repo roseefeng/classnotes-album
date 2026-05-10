@@ -221,20 +221,24 @@ function LoadingModel({ progress, subStage }) {
     </div>
   );
 }
-
-<div style={{
-    width: '40px', height: '40px',
-    display: 'flex', alignItems: 'center', justifyContent: 'center',
-    flexShrink: 0,
-  }}>
-    <div style={{
-      width: '24px', height: '24px',
-      border: '2.5px solid var(--bg-2)',
-      borderTopColor: 'var(--c1)',
-      borderRadius: '50%',
-      animation: 'spin 0.8s linear infinite',
-    }} />
-  </div>
+function Processing({ progress }) {
+  const pct = progress.total > 0 ? progress.done / progress.total : 0;
+  return (
+    <div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
+        <div style={{
+          width: '40px', height: '40px',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          flexShrink: 0,
+        }}>
+          <div style={{
+            width: '24px', height: '24px',
+            border: '2.5px solid var(--bg-2)',
+            borderTopColor: 'var(--c2)',
+            borderRadius: '50%',
+            animation: 'spin 0.8s linear infinite',
+          }} />
+        </div>
         <div>
           <div style={{ fontSize: '15px', fontWeight: 600, color: 'var(--ink)' }}>
             正在分析照片
