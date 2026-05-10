@@ -392,37 +392,36 @@ function AlbumView({ courses, photos, onPickCourse, onImport, onSearch, onOpenRe
 
   return (
     <div className="fade-up" style={{ paddingBottom: '110px' }}>
-      <div style={{
-        padding: 'max(20px, env(safe-area-inset-top)) 22px 22px',
-        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <div style={{
-            fontSize: '18px',
-            fontWeight: 600,
-            color: 'var(--ink)',
-            letterSpacing: '-0.01em',
-          }}>
-            课堂相册
-          </div>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-          {photos.length > 0 && (
-            <button onClick={onSearch} className="tap" style={{
-              color: 'var(--ink)', padding: '4px',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-            }}>
-              <IconSearch size={16} stroke={1.6} />
-            </button>
-          )}
-          <button onClick={onImport} className="tap" style={{
-            color: 'var(--ink)', padding: '4px',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-          }}>
-            <IconUpload size={16} stroke={1.6} />
-          </button>
-        </div>
-      </div>
+<div style={{
+  padding: 'max(20px, env(safe-area-inset-top)) 22px 16px',
+  display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+}}>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+    <div style={{
+      fontSize: '22px',
+      fontWeight: 600,
+      color: 'var(--ink)',
+      letterSpacing: '-0.01em',
+    }}>
+      课堂相册
+    </div>
+    <button onClick={onImport} className="tap" style={{
+      color: 'var(--ink)', padding: '4px',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+    }}>
+      <IconUpload size={18} stroke={1.6} />
+    </button>
+  </div>
+  {photos.length > 0 && (
+    <button onClick={onSearch} className="tap" style={{
+      color: 'var(--ink)', padding: '4px',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+    }}>
+      <IconSearch size={18} stroke={1.6} />
+    </button>
+  )}
+</div>
+      
 
 
       {courses.length === 0 ? (
@@ -594,7 +593,7 @@ function CoursesView({ courses, photos, onPickCourse, onAddCourse, onEditCourse 
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <div style={{
-            fontSize: '18px',
+            fontSize: '22px',
             fontWeight: 600,
             color: 'var(--ink)',
             letterSpacing: '-0.01em',
