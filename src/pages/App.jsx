@@ -1,6 +1,5 @@
 import { IconUpload, IconPlus, IconChevronRight, IconSearch, IconSparkle, IconMore } from '../components/Icons.jsx';
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
-import { IconUpload, IconPlus, IconChevronRight, IconSearch, IconSparkle } from '../components/Icons.jsx';
 import BottomNav from '../components/BottomNav.jsx';
 import Onboarding from '../components/Onboarding.jsx';
 import Camera from '../components/Camera.jsx';
